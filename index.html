@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="rating-modal">
+      <div class="logo">
+        <img src="./images/icon-star.svg" alt="">
+      </div>
+      <div class="info">
+        <div class="title">How did we do?</div>
+        <div class="subtext">Please let us know how we did with your support request. All feedback is appreciated 
+          to help us improve our offering!</div>
+      </div>
+      <div class="btns">
+        <button class="r-btn">1</button>
+        <button class="r-btn">2</button>
+        <button class="r-btn">3</button>
+        <button class="r-btn">4</button>
+        <button class="r-btn">5</button>
+      </div>
+      <button type="submit" class="btn" onclick="showThankTab()">SUBMIT</button>
+    </div>
+    <div class="thankyou-modal">
+      <div class="thanks-logo">
+        <img src="./images/illustration-thank-you.svg" alt="">
+      </div>
+      <div class="rating-stat">You selected <span class="rating-socre">0</span> rating here out of 5</div>
+      <div class="thankyou-msg">Thank you</div>
+      <div class="thanksSubtext">We appreciate you taking the time to give a rating. If you ever need more support, 
+        don’t hesitate to get in touch!</div>
+    </div>
+  </div>
+  <!-- Rating state start -->
+<!-- 
+  How did we do?
+
+  Please let us know how we did with your support request. All feedback is appreciated 
+  to help us improve our offering!
+
+  1 2 3 4 5
+
+  Submit -->
+
+  <!-- Rating state end -->
+
+  <!-- Thank you state start -->
+
+  <!-- You selected  Add rating here out of 5 -->
+
+  <!-- Thank you!
+
+  We appreciate you taking the time to give a rating. If you ever need more support, 
+  don’t hesitate to get in touch! -->
+
+  <!-- Thank you state end -->
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Aditya Mane</a>.
+  </div>
+  <script>
+    const btns = document.querySelectorAll(".r-btn");
+    const rating = document.querySelector('.rating-modal')
+    const thankYou = document.querySelector('.thankyou-modal')
+    const ratingScore = document.querySelector('.rating-socre')
+    let ratingGiven = 0
+    
+    btns.forEach((btn)=>{
+      btn.addEventListener("click",()=>{
+        ratingGiven = btn.innerHTML
+      })
+    }) 
+    const showThankTab = () =>{
+    ratingScore.innerHTML = ratingGiven
+    rating.style.display = "none"
+    thankYou.style.display = "block"
+    }
+  </script>
+</body>
+</html>
